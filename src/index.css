@@ -3,7 +3,7 @@
 ========================================================= */
 
 @import url(
-  'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap'
+  "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
 );
 
 
@@ -40,36 +40,27 @@
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
 }
 
-
 body {
   margin: 0;
-
   font-family: "DM Sans", sans-serif;
-
   color: var(--text-dark);
-
   background: var(--cream-light);
-
   overflow-x: hidden;
 }
-
 
 button,
 a {
   font-family: inherit;
 }
 
-
 button {
   border: none;
 }
-
 
 a {
   color: inherit;
@@ -83,29 +74,22 @@ a {
 
 .top-nav {
   position: fixed;
-
   top: 18px;
   left: 50%;
-
   transform: translateX(-50%);
 
   width: min(94%, 1120px);
-
   height: 66px;
 
-  padding:
-    0 14px 0 25px;
+  padding: 0 14px 0 18px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   z-index: 1000;
 
-  background:
-    rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.82);
 
   backdrop-filter:
     blur(28px)
@@ -121,49 +105,97 @@ a {
   border-radius: 22px;
 
   box-shadow:
-    0 15px 45px
-    rgba(42, 25, 16, 0.15);
+    0 15px 45px rgba(42, 25, 16, 0.15);
 }
 
 
+/* =========================================================
+   LOGO
+========================================================= */
+
 .top-brand {
+  width: auto;
+  min-width: 145px;
+  height: 50px;
+
+  padding: 0 10px 0 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 11px;
+
+  flex-shrink: 0;
+
   background: transparent;
-
-  color: var(--brown-dark);
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 15px;
-
-  font-weight: 800;
-
-  letter-spacing: 3px;
 
   cursor: pointer;
 
-  transition: var(--transition);
-}
+  border-radius: 14px;
 
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+}
 
 .top-brand:hover {
   transform: scale(1.06);
+  background: rgba(112, 69, 43, 0.08);
 }
 
+.top-logo {
+  display: block;
+
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+
+  border-radius: 10px;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.top-brand:hover .top-logo {
+  transform:
+    scale(1.12)
+    rotate(-2deg);
+}
+
+
+.brand-name {
+  display: block;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+  line-height: 1;
+
+  color: var(--brown-dark);
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
 
 .top-links {
   display: flex;
-
   align-items: center;
-
   gap: 5px;
 }
-
 
 .top-links button {
   position: relative;
 
-  padding:
-    13px 15px;
+  padding: 13px 15px;
 
   border-radius: 13px;
 
@@ -172,21 +204,21 @@ a {
   color: #4b3b33;
 
   font-size: 14px;
-
   font-weight: 600;
 
   cursor: pointer;
 
   transition:
-    transform 0.28s
-      cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.28s ease,
     color 0.28s ease,
     box-shadow 0.28s ease;
 }
 
 
-/* macOS-style magnification */
+/* =========================================================
+   macOS-STYLE MAGNIFICATION
+========================================================= */
 
 .top-links button:hover {
   transform:
@@ -200,19 +232,16 @@ a {
     var(--brown-dark);
 
   box-shadow:
-    0 10px 22px
-    rgba(55, 34, 22, 0.12);
+    0 10px 22px rgba(55, 34, 22, 0.12);
 
   z-index: 10;
 }
-
 
 .top-links button:hover + button {
   transform:
     translateY(-2px)
     scale(1.08);
 }
-
 
 .top-links button:has(+ button:hover) {
   transform:
@@ -233,14 +262,15 @@ a {
   overflow: hidden;
 
   display: flex;
-
   align-items: center;
 
   background: #cdb9a7;
 }
 
 
-/* ORIGINAL IMAGE — NO BLUR */
+/* =========================================================
+   HERO BACKGROUND IMAGE
+========================================================= */
 
 .hero-background {
   position: absolute;
@@ -262,25 +292,40 @@ a {
   opacity: 1;
 
   filter: none;
-
   -webkit-filter: none;
 }
 
 
-/*
-   This does NOT blur the image.
+/* =========================================================
+   HERO READABILITY OVERLAY
+========================================================= */
 
-   It only adds a very subtle dark/cream
-   gradient so text can be read.
-*/
-
-.hero-readability {
+.hero-soft-overlay {
   position: absolute;
 
   inset: 0;
 
   z-index: 1;
 
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 13, 8, 0.28) 0%,
+      rgba(25, 13, 8, 0.10) 38%,
+      rgba(255, 248, 240, 0.02) 68%,
+      rgba(255, 248, 240, 0.04) 100%
+    );
+}
+
+
+/* Keep old class working too */
+
+.hero-readability {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
 
   background:
@@ -307,8 +352,7 @@ a {
 
   margin: 0 auto;
 
-  padding:
-    145px 0 105px;
+  padding: 145px 0 105px;
 
   display: grid;
 
@@ -331,14 +375,6 @@ a {
 
   max-width: 760px;
 
-  /*
-     Slight dark transparent backing behind
-     the text only.
-
-     This makes the name visible while
-     keeping the background image visible.
-  */
-
   padding:
     22px 25px 28px;
 
@@ -355,12 +391,10 @@ a {
     );
 }
 
-
 .hero-label {
   margin-bottom: 19px;
 
-  color:
-    #f4d7c0;
+  color: #f4d7c0;
 
   font-size: 12px;
 
@@ -371,13 +405,12 @@ a {
   text-transform: uppercase;
 
   text-shadow:
-    0 2px 12px
-    rgba(0, 0, 0, 0.65);
+    0 2px 12px rgba(0, 0, 0, 0.65);
 }
 
 
 /* =========================================================
-   NAME
+   HERO NAME
 ========================================================= */
 
 .hero-title {
@@ -392,17 +425,10 @@ a {
   letter-spacing: -5px;
 }
 
-
-/*
-   KINGSBEN is now LIGHT,
-   not dark.
-*/
-
 .hero-first-name {
   display: block;
 
-  color:
-    #fff7f0;
+  color: #fff7f0;
 
   font-size:
     clamp(72px, 9vw, 140px);
@@ -414,19 +440,12 @@ a {
     0 10px 35px rgba(24, 12, 7, 0.35);
 }
 
-
-/*
-   OFOSU AMOAKO stays white
-   but gets a stronger shadow.
-*/
-
 .hero-last-name {
   display: block;
 
   margin-top: 12px;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
   font-size:
     clamp(48px, 6.2vw, 94px);
@@ -450,8 +469,7 @@ a {
 
   margin-top: 31px;
 
-  color:
-    #fff9f4;
+  color: #fff9f4;
 
   font-size: 17px;
 
@@ -479,13 +497,11 @@ a {
   margin-top: 30px;
 }
 
-
 .brown-button,
 .outline-button {
   min-height: 56px;
 
-  padding:
-    0 24px;
+  padding: 0 24px;
 
   border-radius: 16px;
 
@@ -513,30 +529,22 @@ a {
 
   gap: 18px;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
-  background:
-    #321b12;
+  background: #321b12;
 
   box-shadow:
-    0 12px 30px
-    rgba(32, 16, 9, 0.35);
+    0 12px 30px rgba(32, 16, 9, 0.35);
 }
-
 
 .brown-button:hover {
-  transform:
-    translateY(-5px);
+  transform: translateY(-5px);
 
   box-shadow:
-    0 18px 35px
-    rgba(32, 16, 9, 0.45);
+    0 18px 35px rgba(32, 16, 9, 0.45);
 
-  background:
-    #472719;
+  background: #472719;
 }
-
 
 .button-arrow {
   font-size: 20px;
@@ -544,7 +552,6 @@ a {
   transition:
     transform var(--transition);
 }
-
 
 .brown-button:hover .button-arrow {
   transform:
@@ -555,37 +562,29 @@ a {
 /* Secondary button */
 
 .outline-button {
-  color:
-    #2f1a10;
+  color: #2f1a10;
 
-  background:
-    rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.92);
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.95);
+    1px solid rgba(255, 255, 255, 0.95);
 
   box-shadow:
-    0 10px 25px
-    rgba(35, 18, 10, 0.18);
+    0 10px 25px rgba(35, 18, 10, 0.18);
 }
 
-
 .outline-button:hover {
-  transform:
-    translateY(-5px);
+  transform: translateY(-5px);
 
-  background:
-    #ffffff;
+  background: #ffffff;
 
   box-shadow:
-    0 18px 35px
-    rgba(35, 18, 10, 0.25);
+    0 18px 35px rgba(35, 18, 10, 0.25);
 }
 
 
 /* =========================================================
-   SMALLER HERO GLASS CARD
+   HERO GLASS CARD
 ========================================================= */
 
 .hero-info-card {
@@ -599,26 +598,18 @@ a {
 
   margin-left: auto;
 
-  padding:
-    27px 29px;
+  padding: 27px 29px;
 
   border-radius: 27px;
-
-  /*
-     Transparent glass.
-     NO backdrop blur.
-  */
 
   background:
     rgba(255, 255, 255, 0.16);
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.72);
+    1px solid rgba(255, 255, 255, 0.72);
 
   box-shadow:
-    0 25px 60px
-    rgba(36, 20, 12, 0.15);
+    0 25px 60px rgba(36, 20, 12, 0.15);
 
   overflow: hidden;
 
@@ -626,7 +617,6 @@ a {
     transform var(--transition),
     background var(--transition);
 }
-
 
 .hero-info-card::before {
   content: "";
@@ -643,17 +633,17 @@ a {
     rgba(255, 255, 255, 0.95);
 }
 
-
 .hero-info-card:hover {
-  transform:
-    translateY(-7px);
+  transform: translateY(-7px);
 
   background:
     rgba(255, 255, 255, 0.21);
 }
 
 
-/* Card top */
+/* =========================================================
+   HERO CARD
+========================================================= */
 
 .hero-card-top {
   display: flex;
@@ -663,10 +653,8 @@ a {
   justify-content: space-between;
 }
 
-
 .hero-card-number {
-  color:
-    #f1d8c6;
+  color: #f1d8c6;
 
   font-size: 11px;
 
@@ -675,14 +663,11 @@ a {
   letter-spacing: 2px;
 
   text-shadow:
-    0 2px 7px
-    rgba(30, 15, 8, 0.5);
+    0 2px 7px rgba(30, 15, 8, 0.5);
 }
 
-
 .hero-card-label {
-  color:
-    #f2ddcf;
+  color: #f2ddcf;
 
   font-size: 10px;
 
@@ -691,17 +676,12 @@ a {
   letter-spacing: 2.3px;
 
   text-shadow:
-    0 2px 7px
-    rgba(30, 15, 8, 0.5);
+    0 2px 7px rgba(30, 15, 8, 0.5);
 }
-
-
-/* Card content */
 
 .hero-card-main {
   margin-top: 45px;
 }
-
 
 .hero-card-title {
   display: flex;
@@ -710,14 +690,11 @@ a {
 
   gap: 1px;
 
-  margin: 0;
+  margin: 45px 0 0;
 
-  color:
-    #3a1e12;
+  color: #3a1e12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size:
     clamp(39px, 4vw, 53px);
@@ -729,15 +706,12 @@ a {
   font-weight: 800;
 
   text-shadow:
-    0 2px 8px
-    rgba(255, 255, 255, 0.22);
+    0 2px 8px rgba(255, 255, 255, 0.22);
 }
-
 
 .hero-card-title span {
   display: block;
 }
-
 
 .hero-card-line {
   width: 100%;
@@ -750,12 +724,10 @@ a {
     rgba(63, 36, 24, 0.35);
 }
 
-
 .hero-card-description {
   margin-top: 19px;
 
-  color:
-    #51382b;
+  color: #51382b;
 
   font-size: 12px;
 
@@ -764,17 +736,13 @@ a {
   line-height: 1.9;
 
   text-shadow:
-    0 1px 5px
-    rgba(255, 255, 255, 0.18);
+    0 1px 5px rgba(255, 255, 255, 0.18);
 }
 
-
 .hero-card-description span {
-  margin:
-    0 5px;
+  margin: 0 5px;
 
-  color:
-    #8e634a;
+  color: #8e634a;
 }
 
 
@@ -786,6 +754,7 @@ a {
   position: absolute;
 
   left: 50%;
+
   bottom: 25px;
 
   transform:
@@ -801,8 +770,7 @@ a {
 
   background: transparent;
 
-  color:
-    #f0d9c8;
+  color: #f0d9c8;
 
   font-size: 9px;
 
@@ -813,20 +781,17 @@ a {
   cursor: pointer;
 
   text-shadow:
-    0 2px 8px
-    rgba(30, 14, 8, 0.75);
+    0 2px 8px rgba(30, 14, 8, 0.75);
 
   transition:
     transform var(--transition);
 }
-
 
 .hero-scroll:hover {
   transform:
     translateX(-50%)
     translateY(-4px);
 }
-
 
 .scroll-line {
   width: 40px;
@@ -851,37 +816,26 @@ a {
   scroll-margin-top: 100px;
 }
 
-
 .light-section {
-  background:
-    #ffffff;
+  background: #ffffff;
 }
-
 
 .cream-section {
-  background:
-    #f5eee7;
+  background: #f5eee7;
 }
-
 
 .brown-section {
-  background:
-    #351d13;
+  background: #351d13;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 }
 
-
 .section-container {
-  width:
-    min(1180px, 90%);
+  width: min(1180px, 90%);
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  padding:
-    120px 0;
+  padding: 120px 0;
 }
 
 
@@ -890,10 +844,8 @@ a {
 ========================================================= */
 
 .section-heading {
-  margin-bottom:
-    65px;
+  margin-bottom: 65px;
 }
-
 
 .heading-meta {
   display: flex;
@@ -902,14 +854,11 @@ a {
 
   gap: 15px;
 
-  margin-bottom:
-    17px;
+  margin-bottom: 17px;
 }
 
-
 .section-number {
-  color:
-    #70452f;
+  color: #70452f;
 
   font-size: 12px;
 
@@ -918,10 +867,8 @@ a {
   letter-spacing: 2px;
 }
 
-
 .section-label {
-  color:
-    #846858;
+  color: #846858;
 
   font-size: 11px;
 
@@ -932,14 +879,10 @@ a {
   text-transform: uppercase;
 }
 
-
 .section-heading h2 {
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size:
     clamp(58px, 8vw, 105px);
@@ -951,10 +894,8 @@ a {
   font-weight: 800;
 }
 
-
 .section-heading h2 span {
-  color:
-    #b17e5e;
+  color: #b17e5e;
 }
 
 
@@ -963,76 +904,53 @@ a {
 ========================================================= */
 
 .about-section {
-  min-height:
-    850px;
+  min-height: 850px;
 
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 }
 
-
 .about-layout {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
     minmax(320px, 0.7fr);
 
-  gap:
-    90px;
+  gap: 90px;
 
-  align-items:
-    center;
+  align-items: center;
 }
-
 
 .about-text {
-  max-width:
-    650px;
+  max-width: 650px;
 }
-
 
 .about-text p {
-  color:
-    #5c514b;
+  color: #5c514b;
 
-  font-size:
-    17px;
+  font-size: 17px;
 
-  line-height:
-    1.8;
+  line-height: 1.8;
 
-  margin-bottom:
-    24px;
+  margin-bottom: 24px;
 }
-
 
 .about-text .about-large-text {
-  color:
-    #382920;
+  color: #382920;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
-  font-size:
-    28px;
+  font-size: 28px;
 
-  line-height:
-    1.45;
+  line-height: 1.45;
 
-  font-weight:
-    500;
+  font-weight: 500;
 }
 
-
 .about-text strong {
-  color:
-    #563223;
+  color: #563223;
 }
 
 
@@ -1041,20 +959,15 @@ a {
 ========================================================= */
 
 .liquid-card {
-  position:
-    relative;
+  position: relative;
 
-  min-height:
-    490px;
+  min-height: 490px;
 
-  padding:
-    42px;
+  padding: 42px;
 
-  border-radius:
-    34px;
+  border-radius: 34px;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
   background:
     linear-gradient(
@@ -1064,127 +977,84 @@ a {
     );
 
   border:
-    1px solid
-    rgba(112, 69, 43, 0.16);
+    1px solid rgba(112, 69, 43, 0.16);
 
   box-shadow:
-    0 30px 70px
-    rgba(68, 43, 29, 0.12);
+    0 30px 70px rgba(68, 43, 29, 0.12);
 }
 
-
 .liquid-glow {
-  position:
-    absolute;
+  position: absolute;
 
-  width:
-    280px;
+  width: 280px;
+  height: 280px;
 
-  height:
-    280px;
+  right: -100px;
+  top: -90px;
 
-  right:
-    -100px;
-
-  top:
-    -90px;
-
-  border-radius:
-    50%;
+  border-radius: 50%;
 
   background:
     rgba(167, 123, 92, 0.25);
 
-  filter:
-    blur(5px);
+  filter: blur(5px);
 }
-
 
 .liquid-number {
-  position:
-    relative;
+  position: relative;
 
-  color:
-    #89644e;
+  color: #89644e;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .liquid-label {
-  position:
-    relative;
+  position: relative;
 
-  margin-top:
-    15px;
+  margin-top: 15px;
 
-  color:
-    #87634e;
+  color: #87634e;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2.5px;
+  letter-spacing: 2.5px;
 }
 
-
 .liquid-card h3 {
-  position:
-    relative;
+  position: relative;
 
-  margin-top:
-    60px;
+  margin-top: 60px;
 
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size:
     clamp(50px, 5vw, 75px);
 
-  line-height:
-    0.9;
+  line-height: 0.9;
 
-  letter-spacing:
-    -4px;
+  letter-spacing: -4px;
 }
 
-
 .liquid-description {
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    42px;
+  left: 42px;
+  right: 42px;
+  bottom: 42px;
 
-  right:
-    42px;
+  color: #64564d;
 
-  bottom:
-    42px;
+  font-size: 14px;
 
-  color:
-    #64564d;
-
-  font-size:
-    14px;
-
-  line-height:
-    1.7;
+  line-height: 1.7;
 }
 
 
@@ -1193,206 +1063,144 @@ a {
 ========================================================= */
 
 .education-section {
-  min-height:
-    800px;
+  min-height: 800px;
 }
 
-
 .education-feature {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     1.25fr
     0.75fr;
 
   border:
-    1px solid
-    rgba(82, 52, 37, 0.14);
+    1px solid rgba(82, 52, 37, 0.14);
 
-  border-radius:
-    30px;
+  border-radius: 30px;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
   background:
     rgba(255, 255, 255, 0.55);
 
   box-shadow:
-    0 25px 70px
-    rgba(66, 42, 28, 0.08);
+    0 25px 70px rgba(66, 42, 28, 0.08);
 }
-
 
 .education-main {
-  padding:
-    55px;
+  padding: 55px;
 }
-
 
 .education-number {
-  color:
-    #a1775c;
+  color: #a1775c;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .education-category {
-  margin-top:
-    35px;
+  margin-top: 35px;
 
-  color:
-    #87624c;
+  color: #87624c;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2.5px;
+  letter-spacing: 2.5px;
 }
 
-
 .education-main h3 {
-  margin-top:
-    20px;
+  margin-top: 20px;
 
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size:
     clamp(38px, 4vw, 62px);
 
-  line-height:
-    1;
+  line-height: 1;
 
-  letter-spacing:
-    -3px;
+  letter-spacing: -3px;
 }
-
 
 .education-description {
-  max-width:
-    620px;
+  max-width: 620px;
 
-  margin-top:
-    30px;
+  margin-top: 30px;
 
-  color:
-    #62564e;
+  color: #62564e;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  line-height:
-    1.8;
+  line-height: 1.8;
 }
 
-
 .education-side {
-  padding:
-    30px;
+  padding: 30px;
 
   background:
     rgba(87, 51, 36, 0.055);
 
   border-left:
-    1px solid
-    rgba(82, 52, 37, 0.12);
+    1px solid rgba(82, 52, 37, 0.12);
 }
-
 
 .learning-item {
-  display:
-    flex;
+  display: flex;
 
-  gap:
-    22px;
+  gap: 22px;
 
-  padding:
-    25px 0;
+  padding: 25px 0;
 
   border-bottom:
-    1px solid
-    rgba(82, 52, 37, 0.13);
+    1px solid rgba(82, 52, 37, 0.13);
 }
-
 
 .learning-item:last-child {
-  border-bottom:
-    none;
+  border-bottom: none;
 }
-
 
 .learning-item > span {
-  color:
-    #9a725a;
+  color: #9a725a;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 }
-
 
 .learning-item p {
-  color:
-    #8a6652;
+  color: #8a6652;
 
-  font-size:
-    10px;
+  font-size: 10px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .learning-item h4 {
-  margin-top:
-    9px;
+  margin-top: 9px;
 
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-size:
-    20px;
+  font-size: 20px;
 }
 
-
 .learning-item small {
-  display:
-    block;
+  display: block;
 
-  margin-top:
-    8px;
+  margin-top: 8px;
 
-  color:
-    #75665d;
+  color: #75665d;
 
-  font-size:
-    13px;
+  font-size: 13px;
 
-  line-height:
-    1.5;
+  line-height: 1.5;
 }
 
 
@@ -1401,105 +1209,75 @@ a {
 ========================================================= */
 
 .skills-section {
-  min-height:
-    850px;
+  min-height: 850px;
 }
 
-
 .skills-grid {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     repeat(3, 1fr);
 
-  gap:
-    18px;
+  gap: 18px;
 }
 
-
 .skill-card {
-  min-height:
-    245px;
+  min-height: 245px;
 
-  padding:
-    30px;
+  padding: 30px;
 
   border:
-    1px solid
-    rgba(91, 58, 40, 0.13);
+    1px solid rgba(91, 58, 40, 0.13);
 
-  border-radius:
-    25px;
+  border-radius: 25px;
 
-  background:
-    #faf8f5;
+  background: #faf8f5;
 
   transition:
     transform var(--transition),
-    box-shadow var(--transition);
+    box-shadow var(--transition),
+    background var(--transition);
 }
-
 
 .skill-card:hover {
-  transform:
-    translateY(-8px);
+  transform: translateY(-8px);
 
-  background:
-    #ffffff;
+  background: #ffffff;
 
   box-shadow:
-    0 25px 55px
-    rgba(60, 38, 25, 0.10);
+    0 25px 55px rgba(60, 38, 25, 0.10);
 }
-
 
 .skill-card > span {
-  color:
-    #9a725a;
+  color: #9a725a;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .skill-card h3 {
-  margin-top:
-    60px;
+  margin-top: 60px;
 
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
-  font-size:
-    25px;
+  font-size: 25px;
 
-  letter-spacing:
-    -1px;
+  letter-spacing: -1px;
 }
 
-
 .skill-card p {
-  margin-top:
-    12px;
+  margin-top: 12px;
 
-  color:
-    #74665d;
+  color: #74665d;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  line-height:
-    1.6;
+  line-height: 1.6;
 }
 
 
@@ -1508,104 +1286,76 @@ a {
 ========================================================= */
 
 .brown-section {
-  min-height:
-    900px;
+  min-height: 900px;
 
-  background:
-    #351d13;
+  background: #351d13;
 }
-
-
-/*
-   CLEAR CONTRAST FOR SELECTED WORK
-*/
 
 .work-meta .work-number {
-  color:
-    #e1c0a8;
+  color: #e1c0a8;
 }
-
 
 .work-meta .work-label {
-  color:
-    #ead9ca;
+  color: #ead9ca;
 }
-
 
 .work-title {
-  color:
-    #ffffff !important;
+  color: #ffffff !important;
 }
-
 
 .work-title .selected-word {
-  color:
-    #ffffff !important;
+  color: #ffffff !important;
 }
-
 
 .work-title .work-word {
-  color:
-    #dca987 !important;
+  color: #dca987 !important;
 }
 
 
-/* Projects */
+/* =========================================================
+   PROJECTS
+========================================================= */
 
 .projects-grid {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     repeat(2, 1fr);
 
-  gap:
-    18px;
+  gap: 18px;
 }
 
-
 .project-card {
-  position:
-    relative;
+  position: relative;
 
-  min-height:
-    285px;
+  min-height: 285px;
 
-  padding:
-    30px;
+  padding: 30px;
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.16);
+    1px solid rgba(255, 255, 255, 0.16);
 
-  border-radius:
-    25px;
+  border-radius: 25px;
 
   background:
     rgba(255, 255, 255, 0.055);
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
   transition:
     transform var(--transition),
     background var(--transition),
-    border var(--transition);
+    border-color var(--transition);
 }
 
-
 .project-card:hover {
-  transform:
-    translateY(-8px);
+  transform: translateY(-8px);
 
   background:
     rgba(255, 255, 255, 0.10);
@@ -1614,91 +1364,61 @@ a {
     rgba(255, 255, 255, 0.28);
 }
 
-
 .project-number {
-  color:
-    #cda98f;
+  color: #cda98f;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .project-content p {
-  color:
-    #caa990;
+  color: #caa990;
 
-  font-size:
-    10px;
+  font-size: 10px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
-
 
 .project-content h3 {
-  margin-top:
-    10px;
+  margin-top: 10px;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
-  font-size:
-    30px;
+  font-size: 30px;
 
-  letter-spacing:
-    -1px;
+  letter-spacing: -1px;
 }
-
 
 .project-content span {
-  display:
-    block;
+  display: block;
 
-  margin-top:
-    10px;
+  margin-top: 10px;
 
-  color:
-    #c5afa0;
+  color: #c5afa0;
 
-  font-size:
-    13px;
+  font-size: 13px;
 }
 
-
 .project-arrow {
-  position:
-    absolute;
+  position: absolute;
 
-  right:
-    30px;
+  right: 30px;
+  bottom: 28px;
 
-  bottom:
-    28px;
+  color: #ffffff;
 
-  color:
-    #ffffff;
-
-  font-size:
-    25px;
+  font-size: 25px;
 
   transition:
     transform var(--transition);
 }
-
 
 .project-card:hover .project-arrow {
   transform:
@@ -1711,126 +1431,89 @@ a {
 ========================================================= */
 
 .contact-section {
-  min-height:
-    900px;
+  min-height: 900px;
 
-  padding-top:
-    120px;
+  padding-top: 120px;
 
-  background:
-    #f8f4ef;
+  background: #f8f4ef;
 }
 
-
 .contact-container {
-  width:
-    min(1180px, 90%);
+  width: min(1180px, 90%);
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     0.85fr
     1.15fr;
 
-  gap:
-    90px;
+  gap: 90px;
 
-  align-items:
-    start;
+  align-items: start;
 }
 
-
 .contact-intro h2 {
-  margin-top:
-    35px;
+  margin-top: 35px;
 
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size:
     clamp(75px, 9vw, 125px);
 
-  line-height:
-    0.82;
+  line-height: 0.82;
 
-  letter-spacing:
-    -6px;
+  letter-spacing: -6px;
 }
-
 
 .contact-intro h2 span {
-  color:
-    #b17e5e;
+  color: #b17e5e;
 }
-
 
 .contact-description {
-  max-width:
-    390px;
+  max-width: 390px;
 
-  margin-top:
-    35px;
+  margin-top: 35px;
 
-  color:
-    #70635b;
+  color: #70635b;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  line-height:
-    1.7;
+  line-height: 1.7;
 }
-
 
 .contact-cards {
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  gap:
-    14px;
+  gap: 14px;
 }
 
-
 .contact-card {
-  min-height:
-    105px;
+  min-height: 105px;
 
-  padding:
-    22px 25px;
+  padding: 22px 25px;
 
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  gap:
-    20px;
+  gap: 20px;
 
   border:
-    1px solid
-    rgba(93, 61, 43, 0.13);
+    1px solid rgba(93, 61, 43, 0.13);
 
-  border-radius:
-    22px;
+  border-radius: 22px;
 
   background:
     rgba(255, 255, 255, 0.72);
 
   box-shadow:
-    0 12px 35px
-    rgba(55, 34, 22, 0.06);
+    0 12px 35px rgba(55, 34, 22, 0.06);
 
   transition:
     transform var(--transition),
@@ -1838,118 +1521,79 @@ a {
     box-shadow var(--transition);
 }
 
-
 .contact-card:hover {
-  transform:
-    translateX(8px);
+  transform: translateX(8px);
 
-  background:
-    #ffffff;
+  background: #ffffff;
 
   box-shadow:
-    0 20px 45px
-    rgba(55, 34, 22, 0.11);
+    0 20px 45px rgba(55, 34, 22, 0.11);
 }
-
 
 .contact-icon {
-  width:
-    55px;
+  width: 55px;
+  height: 55px;
 
-  height:
-    55px;
+  flex-shrink: 0;
 
-  flex-shrink:
-    0;
+  display: flex;
 
-  display:
-    flex;
+  align-items: center;
+  justify-content: center;
 
-  align-items:
-    center;
+  border-radius: 17px;
 
-  justify-content:
-    center;
+  background: #eee1d6;
 
-  border-radius:
-    17px;
+  color: #563223;
 
-  background:
-    #eee1d6;
+  font-size: 15px;
 
-  color:
-    #563223;
-
-  font-size:
-    15px;
-
-  font-weight:
-    800;
+  font-weight: 800;
 }
-
 
 .contact-card-content {
-  min-width:
-    0;
+  min-width: 0;
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  gap:
-    5px;
+  gap: 5px;
 }
-
 
 .contact-card-content span {
-  color:
-    #96745f;
+  color: #96745f;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    1.5px;
+  letter-spacing: 1.5px;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
-
 
 .contact-card-content strong {
-  color:
-    #321b12;
+  color: #321b12;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  overflow-wrap:
-    anywhere;
+  overflow-wrap: anywhere;
 }
 
-
 .contact-card-arrow {
-  margin-left:
-    auto;
+  margin-left: auto;
 
-  color:
-    #563223;
+  color: #563223;
 
-  font-size:
-    22px;
+  font-size: 22px;
 
   transition:
     transform var(--transition);
 }
-
 
 .contact-card:hover .contact-card-arrow {
   transform:
@@ -1962,39 +1606,28 @@ a {
 ========================================================= */
 
 .footer {
-  width:
-    min(1180px, 90%);
+  width: min(1180px, 90%);
 
-  margin:
-    100px auto 0;
+  margin: 100px auto 0;
 
-  padding:
-    25px 0;
+  padding: 25px 0;
 
-  display:
-    flex;
+  display: flex;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
-  gap:
-    20px;
+  gap: 20px;
 
   border-top:
-    1px solid
-    rgba(78, 50, 35, 0.14);
+    1px solid rgba(78, 50, 35, 0.14);
 
-  color:
-    #8a776b;
+  color: #8a776b;
 
-  font-size:
-    10px;
+  font-size: 10px;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    1.2px;
+  letter-spacing: 1.2px;
 }
 
 
@@ -2005,89 +1638,63 @@ a {
 @media (max-width: 1050px) {
 
   .top-nav {
-    width:
-      94%;
+    width: 94%;
   }
-
 
   .top-links button {
-    padding:
-      11px 10px;
+    padding: 11px 10px;
 
-    font-size:
-      13px;
+    font-size: 13px;
   }
-
 
   .hero-content {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    gap:
-      45px;
+    gap: 45px;
 
-    padding-top:
-      150px;
+    padding-top: 150px;
   }
-
 
   .hero-copy {
-    margin-left:
-      0;
+    margin-left: 0;
   }
-
 
   .hero-info-card {
-    width:
-      355px;
+    width: 355px;
 
-    max-width:
-      100%;
+    max-width: 100%;
 
-    min-height:
-      350px;
+    min-height: 350px;
 
-    margin-left:
-      auto;
+    margin-left: auto;
+    margin-right: auto;
   }
-
 
   .about-layout {
-    gap:
-      50px;
+    gap: 50px;
   }
-
 
   .education-feature {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
-
 
   .education-side {
-    border-left:
-      none;
+    border-left: none;
 
     border-top:
-      1px solid
-      rgba(82, 52, 37, 0.12);
+      1px solid rgba(82, 52, 37, 0.12);
   }
-
 
   .skills-grid {
     grid-template-columns:
       repeat(2, 1fr);
   }
 
-
   .contact-container {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    gap:
-      55px;
+    gap: 55px;
   }
-
 }
 
 
@@ -2098,65 +1705,58 @@ a {
 @media (max-width: 760px) {
 
   html {
-    scroll-padding-top:
-      90px;
+    scroll-padding-top: 90px;
   }
-
 
   .top-nav {
-    top:
-      10px;
+    top: 10px;
 
-    width:
-      94%;
+    width: 94%;
 
-    height:
-      60px;
+    height: 60px;
 
     padding:
-      0 10px 0 17px;
+      0 10px 0 12px;
 
-    border-radius:
-      18px;
+    border-radius: 18px;
   }
-
 
   .top-brand {
-    font-size:
-      12px;
-
-    letter-spacing:
-      2px;
+    width: auto;
+    min-width: 125px;
+    height: 44px;
+    gap: 9px;
+    padding: 0 7px 0 4px;
   }
 
+  .top-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
 
   .top-links {
-    gap:
-      0;
+    gap: 0;
   }
-
 
   .top-links button {
-    padding:
-      9px 7px;
+    padding: 9px 7px;
 
-    font-size:
-      10px;
+    font-size: 10px;
   }
-
 
   .hero-section {
-    min-height:
-      100svh;
+    min-height: 100svh;
   }
-
 
   .hero-background {
-    background-position:
-      56% center;
+    background-position: 56% center;
   }
 
-
+  .hero-soft-overlay,
   .hero-readability {
     background:
       linear-gradient(
@@ -2167,25 +1767,20 @@ a {
       );
   }
 
-
   .hero-content {
-    width:
-      90%;
+    width: 90%;
 
     padding:
       125px 0 90px;
 
-    gap:
-      35px;
+    gap: 35px;
   }
-
 
   .hero-copy {
     padding:
       18px 15px 25px;
 
-    margin-left:
-      -15px;
+    margin-left: -15px;
 
     background:
       linear-gradient(
@@ -2196,328 +1791,229 @@ a {
       );
   }
 
-
   .hero-label {
-    margin-bottom:
-      17px;
+    margin-bottom: 17px;
 
-    font-size:
-      9px;
+    font-size: 9px;
 
-    letter-spacing:
-      2px;
+    letter-spacing: 2px;
   }
-
 
   .hero-title {
-    letter-spacing:
-      -3px;
+    letter-spacing: -3px;
   }
-
 
   .hero-first-name {
     font-size:
       clamp(53px, 15vw, 82px);
   }
 
-
   .hero-last-name {
-    margin-top:
-      8px;
+    margin-top: 8px;
 
     font-size:
       clamp(37px, 10vw, 62px);
 
-    letter-spacing:
-      -2.5px;
+    letter-spacing: -2.5px;
   }
-
 
   .hero-description {
-    max-width:
-      480px;
+    max-width: 480px;
 
-    margin-top:
-      24px;
+    margin-top: 24px;
 
-    font-size:
-      14px;
+    font-size: 14px;
 
-    line-height:
-      1.55;
+    line-height: 1.55;
   }
-
 
   .hero-buttons {
-    margin-top:
-      25px;
+    margin-top: 25px;
 
-    gap:
-      9px;
+    gap: 9px;
   }
-
 
   .brown-button,
   .outline-button {
-    min-height:
-      50px;
+    min-height: 50px;
 
-    padding:
-      0 17px;
+    padding: 0 17px;
 
-    border-radius:
-      14px;
+    border-radius: 14px;
 
-    font-size:
-      12px;
+    font-size: 12px;
   }
-
 
   .hero-info-card {
-    width:
-      310px;
+    width: 310px;
 
-    min-height:
-      310px;
+    min-height: 310px;
 
-    padding:
-      23px;
+    padding: 23px;
 
-    border-radius:
-      23px;
+    border-radius: 23px;
 
-    margin-right:
-      auto;
+    margin:
+      0 auto;
   }
-
 
   .hero-card-main {
-    margin-top:
-      35px;
+    margin-top: 35px;
   }
-
 
   .hero-card-title {
-    font-size:
-      39px;
+    font-size: 39px;
 
-    letter-spacing:
-      -2.5px;
+    letter-spacing: -2.5px;
   }
-
 
   .hero-card-line {
-    margin-top:
-      24px;
+    margin-top: 24px;
   }
-
 
   .hero-card-description {
-    font-size:
-      11px;
+    font-size: 11px;
 
-    line-height:
-      1.8;
+    line-height: 1.8;
   }
-
 
   .hero-scroll {
-    display:
-      none;
+    display: none;
   }
-
 
   .section-container {
-    width:
-      90%;
+    width: 90%;
 
-    padding:
-      85px 0;
+    padding: 85px 0;
   }
-
 
   .section-heading {
-    margin-bottom:
-      45px;
+    margin-bottom: 45px;
   }
-
 
   .section-heading h2 {
     font-size:
       clamp(55px, 15vw, 85px);
 
-    letter-spacing:
-      -4px;
+    letter-spacing: -4px;
   }
-
 
   .about-layout {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    gap:
-      45px;
+    gap: 45px;
   }
-
 
   .about-text .about-large-text {
-    font-size:
-      22px;
+    font-size: 22px;
   }
-
 
   .about-text p {
-    font-size:
-      15px;
+    font-size: 15px;
   }
-
 
   .liquid-card {
-    min-height:
-      400px;
+    min-height: 400px;
 
-    padding:
-      30px;
+    padding: 30px;
   }
 
-
   .liquid-card h3 {
-    margin-top:
-      45px;
+    margin-top: 45px;
 
     font-size:
       clamp(48px, 14vw, 70px);
   }
 
-
   .liquid-description {
-    left:
-      30px;
+    left: 30px;
 
-    right:
-      30px;
+    right: 30px;
 
-    bottom:
-      30px;
+    bottom: 30px;
   }
-
 
   .education-main {
-    padding:
-      30px;
+    padding: 30px;
   }
-
 
   .education-main h3 {
     font-size:
       clamp(34px, 10vw, 52px);
 
-    letter-spacing:
-      -2px;
+    letter-spacing: -2px;
   }
-
 
   .education-side {
     padding:
       20px 30px;
   }
 
-
   .skills-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
-
 
   .skill-card {
-    min-height:
-      210px;
+    min-height: 210px;
   }
-
 
   .projects-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
-
 
   .project-card {
-    min-height:
-      245px;
+    min-height: 245px;
   }
-
 
   .work-title {
     font-size:
       clamp(54px, 15vw, 85px) !important;
   }
 
-
   .contact-section {
-    padding-top:
-      85px;
+    padding-top: 85px;
   }
-
 
   .contact-container {
-    width:
-      90%;
+    width: 90%;
 
-    gap:
-      50px;
+    gap: 50px;
   }
-
 
   .contact-intro h2 {
     font-size:
       clamp(72px, 19vw, 105px);
 
-    letter-spacing:
-      -5px;
+    letter-spacing: -5px;
   }
-
 
   .contact-card {
-    min-height:
-      92px;
+    min-height: 92px;
 
-    padding:
-      17px;
+    padding: 17px;
   }
-
 
   .contact-icon {
-    width:
-      47px;
+    width: 47px;
 
-    height:
-      47px;
+    height: 47px;
 
-    border-radius:
-      14px;
+    border-radius: 14px;
   }
-
 
   .contact-card-content strong {
-    font-size:
-      13px;
+    font-size: 13px;
   }
-
 
   .footer {
-    flex-direction:
-      column;
+    flex-direction: column;
 
-    gap:
-      10px;
+    gap: 10px;
 
-    margin-top:
-      70px;
+    margin-top: 70px;
 
-    padding-bottom:
-      25px;
+    padding-bottom: 25px;
   }
-
 }
 
 
@@ -2527,94 +2023,95 @@ a {
 
 @media (max-width: 430px) {
 
-  .top-brand {
-    display:
-      none;
-  }
+  /* KEEP THE LOGO VISIBLE */
 
+  .top-brand {
+    display: flex;
+  }
 
   .top-nav {
-    justify-content:
-      center;
+    justify-content: space-between;
+
+    padding:
+      0 8px;
   }
 
+  .top-links {
+    gap: 0;
+  }
 
   .top-links button {
     padding:
-      9px 6px;
+      9px 5px;
 
-    font-size:
-      9px;
+    font-size: 8.5px;
   }
 
+  .top-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .top-brand {
+    width: auto;
+    min-width: 108px;
+    height: 38px;
+    gap: 7px;
+    padding: 0 5px 0 3px;
+  }
+
+  .brand-name {
+    font-size: 13px;
+  }
 
   .hero-content {
-    padding-top:
-      115px;
+    padding-top: 115px;
   }
-
 
   .hero-first-name {
-    font-size:
-      51px;
+    font-size: 51px;
   }
-
 
   .hero-last-name {
-    font-size:
-      36px;
+    font-size: 36px;
   }
-
 
   .hero-description {
-    font-size:
-      13px;
+    font-size: 13px;
   }
-
 
   .hero-buttons {
-    flex-wrap:
-      wrap;
+    flex-wrap: wrap;
   }
-
 
   .brown-button,
   .outline-button {
-    flex:
-      1;
+    flex: 1;
 
-    min-width:
-      135px;
+    min-width: 135px;
   }
-
 
   .hero-info-card {
-    width:
-      285px;
+    width: 285px;
 
-    min-height:
-      285px;
+    min-height: 285px;
 
-    padding:
-      21px;
+    padding: 21px;
   }
-
 
   .hero-card-title {
-    font-size:
-      36px;
+    font-size: 36px;
   }
-
 
   .section-heading h2 {
-    font-size:
-      55px;
+    font-size: 55px;
   }
-
 
   .work-title {
-    font-size:
-      55px !important;
+    font-size: 55px !important;
   }
 
+  .contact-card-content strong {
+    font-size: 12px;
+  }
 }

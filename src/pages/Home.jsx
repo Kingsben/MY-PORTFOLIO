@@ -22,8 +22,15 @@ function Home() {
         <button
           className="top-brand"
           onClick={() => scrollToSection("home")}
+          aria-label="Go to home"
         >
-          KINGSBEN
+          <img
+            src="/logo.png"
+            alt="Kingsben logo"
+            className="top-logo"
+          />
+
+          <span className="brand-name">KINGSBEN</span>
         </button>
 
         <nav className="top-links">
@@ -58,30 +65,24 @@ function Home() {
 
 
       {/* =====================================================
-          HERO
+          HERO SECTION
       ====================================================== */}
 
       <section id="home" className="hero-section">
 
-        {/* Original background image */}
         <div className="hero-background"></div>
 
-        {/* Helps the text stand out without blurring the image */}
         <div className="hero-readability"></div>
-
 
         <div className="hero-content">
 
-          {/* =================================================
-              LEFT SIDE
-          ================================================== */}
+          {/* LEFT SIDE */}
 
           <div className="hero-copy">
 
             <p className="hero-label">
               COMPUTER ENGINEERING STUDENT
             </p>
-
 
             <h1 className="hero-title">
 
@@ -95,13 +96,11 @@ function Home() {
 
             </h1>
 
-
             <p className="hero-description">
               I build practical digital experiences and
               engineering solutions through software,
               hardware and modern technology.
             </p>
-
 
             <div className="hero-buttons">
 
@@ -109,15 +108,9 @@ function Home() {
                 className="brown-button"
                 onClick={() => scrollToSection("work")}
               >
-                <span>
-                  View My Work
-                </span>
-
-                <span className="button-arrow">
-                  ↗
-                </span>
+                <span>View My Work</span>
+                <span className="button-arrow">↗</span>
               </button>
-
 
               <button
                 className="outline-button"
@@ -131,9 +124,7 @@ function Home() {
           </div>
 
 
-          {/* =================================================
-              RIGHT SIDE — SMALLER GLASS CARD
-          ================================================== */}
+          {/* RIGHT SIDE */}
 
           <div className="hero-info-card">
 
@@ -149,65 +140,40 @@ function Home() {
 
             </div>
 
+            <h2 className="hero-card-title">
 
-            <div className="hero-card-main">
+              <span>Software</span>
+              <span>Hardware</span>
+              <span>Systems</span>
 
-              <h2 className="hero-card-title">
+            </h2>
 
-                <span>
-                  Software
-                </span>
+            <div className="hero-card-line"></div>
 
-                <span>
-                  Hardware
-                </span>
+            <p className="hero-card-description">
 
-                <span>
-                  Systems
-                </span>
+              Web Development
+              <span>•</span>
+              Mobile Applications
+              <br />
 
-              </h2>
+              Embedded Systems
+              <span>•</span>
+              Engineering
 
-
-              <div className="hero-card-line"></div>
-
-
-              <p className="hero-card-description">
-
-                Web Development
-                <span>•</span>
-                Mobile Apps
-
-                <br />
-
-                Embedded Systems
-                <span>•</span>
-                Engineering
-
-              </p>
-
-            </div>
+            </p>
 
           </div>
 
         </div>
 
 
-        {/* =================================================
-            SCROLL INDICATOR
-        ================================================== */}
-
         <button
           className="hero-scroll"
           onClick={() => scrollToSection("about")}
         >
-
           <span className="scroll-line"></span>
-
-          <span>
-            SCROLL TO EXPLORE
-          </span>
-
+          <span>SCROLL TO EXPLORE</span>
         </button>
 
       </section>
@@ -252,15 +218,12 @@ function Home() {
 
               <p className="about-large-text">
                 I am{" "}
-                <strong>
-                  Kingsben Ofosu Amoako
-                </strong>
-                , a Computer Engineering student at{" "}
+                <strong>Kingsben Ofosu Amoako</strong>,
+                a Computer Engineering student at{" "}
                 <strong>
                   Ghana Communication Technology University.
                 </strong>
               </p>
-
 
               <p>
                 I am interested in technology, software
@@ -268,7 +231,6 @@ function Home() {
                 I enjoy turning what I learn into practical
                 projects.
               </p>
-
 
               <p>
                 My goal is to continue developing my technical
@@ -377,15 +339,11 @@ function Home() {
 
               <div className="learning-item">
 
-                <span>
-                  02
-                </span>
+                <span>02</span>
 
                 <div>
 
-                  <p>
-                    BOOTCAMP
-                  </p>
+                  <p>BOOTCAMP</p>
 
                   <h4>
                     ERA AXIS System Bootcamp
@@ -403,9 +361,7 @@ function Home() {
 
               <div className="learning-item">
 
-                <span>
-                  03
-                </span>
+                <span>03</span>
 
                 <div>
 
@@ -472,9 +428,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                01
-              </span>
+              <span>01</span>
 
               <h3>
                 Web Development
@@ -489,9 +443,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                02
-              </span>
+              <span>02</span>
 
               <h3>
                 Programming
@@ -506,9 +458,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                03
-              </span>
+              <span>03</span>
 
               <h3>
                 Mobile Development
@@ -523,9 +473,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                04
-              </span>
+              <span>04</span>
 
               <h3>
                 Engineering
@@ -540,9 +488,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                05
-              </span>
+              <span>05</span>
 
               <h3>
                 Networking
@@ -557,9 +503,7 @@ function Home() {
 
             <div className="skill-card">
 
-              <span>
-                06
-              </span>
+              <span>06</span>
 
               <h3>
                 Development Tools
@@ -602,7 +546,6 @@ function Home() {
               </p>
 
             </div>
-
 
             <h2 className="work-title">
 
@@ -767,9 +710,7 @@ function Home() {
             <h2>
               Let's
               <br />
-              <span>
-                connect.
-              </span>
+              <span>connect.</span>
             </h2>
 
             <p className="contact-description">
